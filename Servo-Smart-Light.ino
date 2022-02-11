@@ -30,6 +30,7 @@ void setup() {
   Switch.attach(SERVO_PIN);
   Switch.write(30);
 
+ 
   // Buttons
   pinMode(BUTTON1,INPUT);
   pinMode(BUTTON2,INPUT);
@@ -55,6 +56,10 @@ const unsigned long HOUR = 60*MINUTE;
 void StartDelay() {
   for (int i = LED0; i < LED0+LED_COUNT; i++) {
     digitalWrite(i,LOW);
+    for (int j = 0; j < 5; j++) {
+      UpdateLEDs();
+      delay(10);
+    }
   }
  
   delay(MINUTE*15*Minutes + HOUR*Hours);
@@ -62,12 +67,13 @@ void StartDelay() {
   Switch.write(170);
 
   delay(3000);
-  
+ 
   // reset
   Button1Counter = 0;
   Hours = 0;
   Minutes = 0;
   Switch.write(30);
+
 }
 
 void UpdateLEDs(){
