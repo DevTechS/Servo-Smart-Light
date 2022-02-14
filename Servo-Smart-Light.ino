@@ -28,8 +28,9 @@ void setup() {
   // Servo
   pinMode(SERVO_PIN,OUTPUT);
   Switch.attach(SERVO_PIN);
-  Switch.write(30);
+  Switch.write(43);
 
+ 
   // Buttons
   pinMode(BUTTON1,INPUT);
   pinMode(BUTTON2,INPUT);
@@ -59,15 +60,16 @@ void StartDelay() {
  
   delay(MINUTE*15*Minutes + HOUR*Hours);
  
-  Switch.write(170);
+  Switch.write(100);
 
-  delay(3000);
-  
+  delay(1000);
+ 
   // reset
   Button1Counter = 0;
   Hours = 0;
   Minutes = 0;
-  Switch.write(30);
+  Switch.write(43);
+
 }
 
 void UpdateLEDs(){
@@ -86,7 +88,7 @@ void UpdateLEDs(){
 }
 
 void loop() {
-  Switch.write(30);
+  Switch.write(43);
  
   if (digitalRead(BUTTON1) == HIGH) {
     Button1Counter++;
